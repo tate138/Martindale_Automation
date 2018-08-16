@@ -88,7 +88,7 @@ def test_suite():
         Tools.sleep(2)
 
         select = Select(web_element)
-        select.select_by_index("2")
+        select.select_by_index("1")
 
         click_submit_button = \
             SeleniumActions.fetch_web_element(web_driver, MartindalePageData.MODULE_SUBMIT_BUTTON)
@@ -108,6 +108,7 @@ def test_suite():
         Tools.sleep(5)
 
         web_driver.switch_to.default_content()
+
         element_path = MartindalePageData.FEATURED_BLOCKS_MODULE_HEADER
         web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
 
@@ -171,7 +172,7 @@ def test_suite():
 
     try:
         click_layout_tab = \
-            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATUREDE_BLOCKS_LAYOUT_TAB)
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_TAB)
         SeleniumActions.click_element(web_driver, click_layout_tab)
 
         Tools.sleep(1)
@@ -482,6 +483,7 @@ def test_suite():
     ####
     # Execute Test Case C18527155
     ####
+
     try:
         click_add_content = \
             SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CONTENT_ADD_CONTENT)
@@ -539,6 +541,7 @@ def test_suite():
     ####
     # Execute Test Case C18527161
     ####
+
     try:
         element_path = MartindalePageData.ADD_CONTENT_IMAGE_CONTAINER
         web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
@@ -649,6 +652,7 @@ def test_suite():
     ####
     # Execute Test Case C18527172
     ####
+
     try:
         click_select_gallery = \
             SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_CONTENT_SELECT_FROM_GALLERY)
@@ -713,15 +717,10 @@ def test_suite():
         print("<p>Error: %s</p>" % e)
 
 
-
-
-    Tools.sleep(4526)
-
-
-
     ####
     # Execute Test Case C18527153
     ####
+
     try:
         write_block_title = \
             SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_CONTENT_BLOCK_TITLE)
@@ -769,8 +768,680 @@ def test_suite():
         print("<p>Error: %s</p>" % e)
 
 
+    ####
+    # Execute Test Case C18527162
+    ####
+
+    try:
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(1)
+
+        click_modal_no = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.DELETE_FEATURED_BLOCKS_MODAL_CANCEL_BUTTON)
+        SeleniumActions.click_element(web_driver, click_modal_no)
+
+        Tools.sleep(1)
+
+        write_block_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_CONTENT_BLOCK_TITLE)
+        SeleniumActions.clearTextField(web_driver, write_block_title)
+        SeleniumActions.write_to_element(web_driver, write_block_title, "Automated")
+
+        write_block_description = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_BLOCK_DESCRIPTION)
+        SeleniumActions.clearTextField(web_driver, write_block_description)
+        SeleniumActions.write_to_element(web_driver, write_block_description, "This is an automated test.")
+
+        element_path = MartindalePageData.ADD_BLOCK_LINK_APPEARANCE_DROP_DOWN
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        select = Select(web_element)
+        select.select_by_index("1")
+
+        Tools.sleep(2)
+
+        link_text = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_BLOCK_LINK_TEXT_LABEL)
+        read_link_text = SeleniumActions.read_web_element_text(link_text)
+
+        if read_link_text == "Link text*":
+            print("C18527162 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527162',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18527162 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527162',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18527162 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
 
 
+    ####
+    # Execute Test Case C18527163
+    ####
+
+    try:
+
+        element_path = MartindalePageData.ADD_BLOCK_LINK_APPEARANCE_DROP_DOWN
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        select = Select(web_element)
+        select.select_by_index("2")
+
+        Tools.sleep(2)
+
+        link_text = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_BLOCK_BUTTON_TEXT_LABEL)
+        read_link_text = SeleniumActions.read_web_element_text(link_text)
+
+        if read_link_text == "Button text*":
+            print("C18527163 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527163',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18527163 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527163',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18527163 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18527153
+    ####
+
+    try:
+
+        write_link_box_text = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_BLOCK_LINK_TEXT_BOX)
+        SeleniumActions.clearTextField(web_driver, write_link_box_text)
+        SeleniumActions.write_to_element(web_driver, write_link_box_text, "Black Vinyl 45")
+
+        write_external_link_text = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCK_EXTERNAL_LINK)
+        SeleniumActions.clearTextField(web_driver, write_external_link_text)
+        SeleniumActions.write_to_element(web_driver, write_external_link_text, "http://www.blackvinyl45.com")
+
+        write_block_alt_text = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_ALT_TEXT)
+        SeleniumActions.clearTextField(web_driver, write_block_alt_text)
+        SeleniumActions.write_to_element(web_driver, write_block_alt_text, "alt")
+
+        click_save_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_CONTENT_SAVE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_save_button)
+
+        Tools.sleep(4)
+
+        saved_image = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCK_IMAGE)
+
+        if SeleniumActions.element_is_visible(web_driver, saved_image):
+            print("C18527153 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527153',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18527153 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527153',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18527153 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18521234
+    ####
+
+    try:
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        web_element = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_BLOCK_TITLE)
+
+        if SeleniumActions.element_is_visible(web_driver, web_element):
+            test_one = "Passed"
+        else:
+            test_one = "Failed"
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_TITLE)
+        SeleniumActions.click_element(web_driver, click_show_title)
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        Tools.sleep(4)
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+
+        if SeleniumActions.check_element_exists(web_driver, "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div/ul/li/div/a/span[2]"):
+            test_two = "Failed"
+        else:
+            test_two = "Passed"
+
+        if test_one == "Passed" and test_two == "Passed":
+            print("C18521234 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521234',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18521234 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521234',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18521234 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18527232
+    ####
+
+    try:
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_TITLE)
+        SeleniumActions.click_element(web_driver, click_show_title)
+
+        click_layout_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_TAB)
+        SeleniumActions.click_element(web_driver, click_layout_tab)
+
+        Tools.sleep(1)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_LAYOUT_OVERLAY
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+        SeleniumActions.move_to_element(web_driver, web_element)
+
+        click_layout_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CHANGE_LAYOUT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_layout_tab)
+
+        Tools.sleep(1)
+
+        click_layout = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_ONE)
+        SeleniumActions.click_element(web_driver, click_layout)
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_LAYOUT
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        if SeleniumActions.element_is_visible(web_driver, web_element):
+            print("C18527232 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527232',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18527232 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527232',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18527232 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18521231
+    ####
+
+    try:
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        write_block_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CONTENT_TITLE)
+        SeleniumActions.clearTextField(web_driver, write_block_title)
+        SeleniumActions.write_to_element(web_driver, write_block_title, "Automated Title")
+
+        write_block_caption = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CAPTION)
+        SeleniumActions.clearTextField(web_driver, write_block_caption)
+        SeleniumActions.write_to_element(web_driver, write_block_caption, "Automated Caption")
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_TITLE
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        if SeleniumActions.element_is_visible(web_driver, web_element):
+            test_one = "Passed"
+        else:
+            test_one = "Failed"
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_TITLE)
+        SeleniumActions.click_element(web_driver, click_show_title)
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        if SeleniumActions.check_element_exists(web_driver, "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[1]/h2"):
+            test_two = "Failed"
+        else:
+            test_two = "Passed"
+
+        if test_one == "Passed" and test_two == "Passed":
+            print("C18521231 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521231',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18521231 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521231',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18521231 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18521232
+    ####
+
+    try:
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_CAPTION_DISPLAY
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        if SeleniumActions.element_is_visible(web_driver, web_element):
+            test_one = "Passed"
+        else:
+            test_one = "Failed"
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_title = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_TITLE)
+        SeleniumActions.click_element(web_driver, click_show_title)
+
+        click_show_caption = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_CAPTION)
+        SeleniumActions.click_element(web_driver, click_show_caption)
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_TITLE
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        if SeleniumActions.check_element_exists(web_driver, "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[1]/h3"):
+            test_two = "Failed"
+        else:
+            test_two = "Passed"
+
+        if test_one == "Passed" and test_two == "Passed":
+            print("C18521232 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521232',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18521232 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521232',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18521232 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18521235
+    ####
+
+    try:
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_caption = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_CAPTION)
+        SeleniumActions.click_element(web_driver, click_show_caption)
+
+        click_show_description = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_DESCRIPTION)
+        SeleniumActions.click_element(web_driver, click_show_description)
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_DESCRIPTION
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+        element_text = SeleniumActions.read_web_element_text(web_element)
+
+        if element_text == "LEARN MORE":
+            test_one = "Passed"
+        else:
+            test_one = "Failed"
+
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_settings_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_TAB)
+        SeleniumActions.click_element(web_driver, click_settings_tab)
+
+        Tools.sleep(1)
+
+        click_show_description = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_DESCRIPTION)
+        SeleniumActions.click_element(web_driver, click_show_description)
+
+        click_done_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURE_BLOCK_DONE_BUTTON)
+        SeleniumActions.click_element(web_driver, click_done_button)
+
+        web_driver.switch_to.frame(web_driver.find_element_by_xpath(MartindalePageData.MARTINDALE_IFRAME))
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_DESCRIPTION
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        if SeleniumActions.element_is_visible(web_driver, web_element):
+            test_two = "Passed"
+        else:
+            test_two = "Failed"
+
+        if test_one == "Passed" and test_two == "Passed":
+            print("C18521235 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521235',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18521235 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18521235',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18521235 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
+
+
+    ####
+    # Execute Test Case C18527148
+    ####
+
+    try:
+        click_blade_module = SeleniumActions.fetch_web_element(web_driver, MartindalePageData.BLADE_MODULE)
+        SeleniumActions.click_element(web_driver, click_blade_module)
+
+        Tools.sleep(2)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_MODULE_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(5)
+
+        web_driver.switch_to.default_content()
+
+        click_layout_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_TAB)
+        SeleniumActions.click_element(web_driver, click_layout_tab)
+
+        Tools.sleep(1)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_LAYOUT_OVERLAY
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+        SeleniumActions.move_to_element(web_driver, web_element)
+
+        change_layout_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CHANGE_LAYOUT_BUTTON)
+        SeleniumActions.click_element(web_driver, change_layout_button)
+
+        Tools.sleep(1)
+
+        click_layout = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_TWO)
+        SeleniumActions.click_element(web_driver, click_layout)
+
+        click_content_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_CONTENT_TAB)
+        SeleniumActions.click_element(web_driver, click_content_tab)
+
+        Tools.sleep(1)
+
+        click_edit_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_EDIT_BUTTON)
+        SeleniumActions.click_element(web_driver, click_edit_button)
+
+        Tools.sleep(4)
+
+        element_path = MartindalePageData.DELETE_FEATURED_BLOCKS_MODAL
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        modal_text = SeleniumActions.read_web_element_text(web_element)
+
+        if modal_text == "You're about to navigate out of the featured blocks settings":
+            test_one = "Passed"
+        else:
+            test_one = "Failed"
+
+        click_yes_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_SAVE_CHANGES_YES_BUTTON)
+        SeleniumActions.click_element(web_driver, click_yes_button)
+
+        Tools.sleep(2)
+
+        click_cancel_button = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.ADD_CONTENT_CANCEL_BUTTON)
+        SeleniumActions.click_element(web_driver, click_cancel_button)
+
+        Tools.sleep(2)
+
+        click_layout_tab = \
+            SeleniumActions.fetch_web_element(web_driver, MartindalePageData.FEATURED_BLOCKS_LAYOUT_TAB)
+        SeleniumActions.click_element(web_driver, click_layout_tab)
+
+        Tools.sleep(2)
+
+        element_path = MartindalePageData.FEATURED_BLOCKS_LAYOUT_LABEL
+        web_element = SeleniumActions.find_by_xpath(web_driver, element_path)
+
+        layout_label_text = SeleniumActions.read_web_element_text(web_element)
+
+        if layout_label_text == "Fly-Up A" and test_one == "Passed":
+            print("C18527148 Passed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527148',
+                {'status_id': 1, 'comment': ''}
+            )
+        else:
+            print("C18527148 Failed")
+            result = client.send_post(
+                'add_result_for_case/' + current_test_run_id + '/18527148',
+                {'status_id': 5, 'comment': ''}
+            )
+
+    except:
+        print("C18527148 Not Tested")
+        e = sys.exc_info()[0]
+        print("<p>Error: %s</p>" % e)
 
 
 
@@ -780,6 +1451,7 @@ def test_suite():
     # Clean up
     ####
     try:
+
         web_element = SeleniumActions.find_by_xpath(web_driver, MartindalePageData.MARTINDALE_OVERLAY)
         SeleniumActions.click_element(web_driver, web_element)
 
@@ -804,6 +1476,8 @@ def test_suite():
     except:
         e = sys.exc_info()[0]
         print("<p>Error: %s</p>" % e)
+
+
 
 
 ####

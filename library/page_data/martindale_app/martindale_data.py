@@ -25,14 +25,14 @@ class MartindalePageData:
     TEST_RAIL_URL = "https://testrail.internetbrands.com/testrail/"
     AUTOMATION_USER = "qatest@internetbrands.com"
     AUTOMATION_PW = "909SepulvedaApiUser"
-    AUTOMATION_TEST_RUN_ID = "66901"
+    AUTOMATION_TEST_RUN_ID = "67594" # "66901"
 
 ####
 # Pages Tab
 ####
 
     PAGES_TAB_BUTTON = "//*[@id=\"se__body\"]/div[2]/ul/li[2]/a"
-    AUTOMATION_PAGE_EDIT_BUTTON = "//*[@id=\"tblPages\"]/tbody/tr[5]/td[6]/a[2]/i"
+    AUTOMATION_PAGE_EDIT_BUTTON = "//*[@id=\"tblPages\"]/tbody/tr[4]/td[6]/a[2]/i"
     AUTOMATION_PAGE_EDIT_BUTTON_TWO = "//*[@id=\"tblPages\"]/tbody/tr[2]/td[6]/a[2]/i"
 
 ####
@@ -53,6 +53,8 @@ class MartindalePageData:
         "//*[@id=\"ple_column-0-modal-gallery\"]/div/form/div[2]/div/section[1]/button"
     BLADE_MODULE_BUTTON = \
         "//*[@id=\"ple_column-0-modal-gallery\"]/div/form/div[2]/div/section[2]/button"
+    CTA_MODULE_BUTTON = \
+        "//*[@id=\"ple_column-0-modal-gallery\"]/div/form/div[2]/div/section[5]/button"
     FEATURED_BLOCKS_MODULE_BUTTON = \
         "//*[@id=\"ple_column-0-modal-gallery\"]/div/form/div[2]/div/section[7]/button"
 
@@ -252,6 +254,17 @@ class MartindalePageData:
         "//*[@id=\"ple_column-0-modal-gallery\"]/div/form/div[2]/div[2]/fieldset/div[3]/label/span"
     FEATURED_BLOCKS_MODULE_HEADER = \
         "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings\"]/div"
+    FEATURED_BLOCKS_TITLE = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[1]/h2"
+    FEATURED_BLOCKS_CAPTION_DISPLAY = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[1]/h3"
+    FEATURED_BLOCKS_BLOCK_TITLE = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div/ul/li/div/a/span[2]"
+    FEATURED_BLOCKS_DESCRIPTION = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[2]/ul/li/div/div[3]"
+
+    FEATURED_BLOCKS_LAYOUT = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div[2]/ul/li/div"
 
     FEATURED_BLOCKS_CONTENT_TAB = \
         "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings\"]/form/div[1]/div/ul/li[1]/a"
@@ -259,6 +272,8 @@ class MartindalePageData:
         "//*[@id=\"tab-content\"]/ul/li[1]/div[1]"
     FEATURED_BLOCKS_CONTENT_TITLE = \
         "//*[@id=\"featured-blocks-title\"]"
+    FEATURED_BLOCKS_CAPTION = \
+        "//*[@id=\"featured-blocks-caption\"]"
     FEATURED_BLOCKS_MANAGE_CONTENT = \
         "//*[@id=\"tab-content\"]/ul/li[2]/div[1]"
     FEATURED_BLOCKS_CONTENT_ADD_CONTENT = \
@@ -287,6 +302,15 @@ class MartindalePageData:
         "//*[@id=\"url\"]"
     FEATURED_BLOCKS_ALT_TEXT = \
         "//*[@id=\"alt_text\"]"
+    FEATURE_BLOCK_DONE_BUTTON = \
+        "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings\"]/form/div[2]/button"
+
+    FEATURED_BLOCKS_SAVE_CHANGES_MODAL = \
+        "//*[@id=\"se__body\"]/div[8]/div[2]/p[1]"
+    FEATURED_BLOCKS_SAVE_CHANGES_NO_BUTTON = \
+        "//*[@id=\"se__body\"]/div[8]/div[2]/p[2]/button[1]"
+    FEATURED_BLOCKS_SAVE_CHANGES_YES_BUTTON = \
+        "//*[@id=\"se__body\"]/div[8]/div[2]/p[2]/button[2]"
 
     ADD_CONTENT_SELECT_FROM_GALLERY = \
         "//*[contains(@id, 'media-finder-')]/button"
@@ -312,6 +336,18 @@ class MartindalePageData:
         "//*[@id=\"article_description\"]"
     ADD_BLOCK_DESCRIPTION_ERROR = \
         "//*[@id=\"article_description-error\"]"
+    ADD_BLOCK_LINK_APPEARANCE_DROP_DOWN = \
+        "//*[@id=\"featuredblock-appearance\"]"
+    ADD_BLOCK_LINK_TEXT_LABEL = \
+        "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings-item\"]/form/div[2]/div[2]/label"
+    ADD_BLOCK_BUTTON_TEXT_LABEL = \
+        "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings-item\"]/form/div[2]/div[1]/label"
+    ADD_BLOCK_LINK_TEXT_BOX = \
+        "//*[@id=\"featuredblock-button-text\"]"
+    ADD_BLOCK_LINK_TYPE_DROP_DOWN = \
+        "//*[@id=\"featuredblock_type\"]"
+    ADD_BLOCK_LINK_DROP_DOWN = \
+        "//*[@id=\"featuredblock_internal\"]"
     ADD_CONTENT_CANCEL_BUTTON = \
         "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings-item\"]/form/div[3]/button[1]"
     ADD_CONTENT_SAVE_BUTTON = \
@@ -323,21 +359,86 @@ class MartindalePageData:
 
     FEATURED_BLOCKS_SETTINGS_SHOW_TITLE = \
         "//*[@id=\"tab-settings\"]/ul/li[2]/div[2]/div[1]/span/label/span"
+    FEATURED_BLOCKS_SETTINGS_SHOW_CAPTION = \
+        "//*[@id=\"tab-settings\"]/ul/li[2]/div[2]/div[2]/span/label/span"
+    FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_TITLE = \
+        "//*[@id=\"tab-settings\"]/ul/li[2]/div[2]/div[5]/span/label/span"
+    FEATURED_BLOCKS_SETTINGS_SHOW_BLOCK_DESCRIPTION = \
+        "//*[@id=\"tab-settings\"]/ul/li[2]/div[2]/div[6]/span/label/span"
 
-
-    FEATUREDE_BLOCKS_LAYOUT_TAB = \
+    FEATURED_BLOCKS_LAYOUT_TAB = \
         "//*[@id=\"FeaturedblocksSettings-SMB__Featuredblocks__Widgets__FeaturedblocksSettings___automation_only-settings\"]/form/div[1]/div/ul/li[3]/a"
     FEATURED_BLOCKS_LAYOUT_LABEL = \
         "//*[@id=\"privew_options_container\"]/ul/li[1]/div[2]/div/div/label"
+    FEATURED_BLOCKS_LAYOUT_OVERLAY = \
+        "//*[@id=\"privew_options_container\"]/ul/li[1]/div[2]/div/div/div[1]"
+    FEATURED_BLOCKS_CHANGE_LAYOUT_BUTTON = \
+        "//*[@id=\"privew_options_container\"]/ul/li[1]/div[2]/div/div/div[1]/a"
+    FEATURED_BLOCKS_LAYOUT_ONE = \
+        "//*[@id=\"picker_grid_a\"]/div"
+    FEATURED_BLOCKS_LAYOUT_TWO = \
+        "//*[@id=\"picker_flyup_a\"]/div"
 
 
+####
+# CTA MODULE
+####
+
+    CTA_MODULE_TITLE_DISPLAY = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div/div/h3"
+    CTA_MODULE_CAPTION_DISPLAY = \
+        "//*[@id=\"ple_column-0\"]/div[3]/div/div/div/div/div/h4"
+    CTA_MODULE_LINK_DISPLAY = \
+        "//*[@class='cta__link component__link--1']"
 
 
+    CTA_MODULE_HEADER = \
+        "//*[@id=\"CtaSettings-SMB__Cta__Widgets__CtaSettings___automation_only-settings\"]/div/h4"
+    CTA_CONTENT_TAB = \
+        "//*[@id=\"CtaSettings-SMB__Cta__Widgets__CtaSettings___automation_only-settings\"]/form/div[1]/div/ul/li[1]/a"
+    CTA_MODULE_TITLE = \
+        "//*[@id=\"title\"]"
+    CTA_MODULE_CAPTION = \
+        "//*[@id=\"caption\"]"
+    CTA_MODULE_ONE_LINK_APPEARANCE = \
+        "//*[@id=\"buttonStyle1\"]"
+    CTA_MODULE_BUTTON_TEXT_BOX_ONE = \
+        "//*[@id=\"buttonText1\"]"
+    CTA_MODULE_SELECT_ICON_ONE = \
+        "//*[@id=\"iconDiv1\"]/div/div[1]/div[2]"
+    CTA_MODULE_BUTTON_ONE_LINK_TYPE = \
+        "//*[@id=\"linkType1\"]"
+    CTA_MODULE_LINK_PAGE_ONE_DROP_DOWN = \
+        "//*[@id=\"linkPage1\"]"
+    CTA_MODULE_EXTERNAL_URL_ONE = \
+        "//*[@id=\"linkUrl1\"]"
+    CTA_MODULE_PHONE_NUMBER_ONE = \
+        "//*[@id=\"linkPhoneUrl1\"]"
+    CTA_MODULE_TWO_LINK_APPEARANCE = \
+        "//*[@id=\"buttonStyle2\"]"
+    CTA_MODULE_LINK_TEXT_BOX_TWO = \
+        "//*[@id=\"buttonText2\"]"
+    CTA_MODULE_BUTTON_TEXT_BOX_TWO = \
+        "//*[@id=\"buttonText2\"]"
+    CTA_MODULE_SELECT_ICON_TWO = \
+        "//*[@id=\"iconDiv2\"]/div/div[1]/div[2]"
+    CTA_MODULE_TWO_BUTTON_LINK_TYPE = \
+        "//*[@id=\"linkType2\"]"
+    CTA_MODULE_LINK_PAGE_TWO_DROP_DOWN = \
+        "//*[@id=\"linkPage2\"]"
+    CTA_MODULE_EXTERNAL_URL_TWO = \
+        "//*[@id=\"linkUrl2\"]"
+    CTA_MODULE_PHONE_NUMBER_TWO = \
+        "//*[@id=\"linkPhoneUrl2\"]"
+    CTA_MODULE_DONE_BUTTON = \
+        "//*[@id=\"CtaSettings-SMB__Cta__Widgets__CtaSettings___automation_only-settings\"]/form/div[2]/button"
 
-
-
-
-
+    CTA_SETTINGS_TAB = \
+        "//*[@id=\"CtaSettings-SMB__Cta__Widgets__CtaSettings___automation_only-settings\"]/form/div[1]/div/ul/li[2]/a"
+    CTA_SETTINGS_SHOW_BUTTON_ONE = \
+        "//*[@id=\"tab-settings\"]/ul/li[1]/ul/li[3]/div/label/span"
+    CTA_SETTINGS_SHOW_BUTTON_TWO = \
+        "//*[@id=\"tab-settings\"]/ul/li[1]/ul/li[4]/div/label/span"
 
 
 
