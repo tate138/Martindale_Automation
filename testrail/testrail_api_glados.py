@@ -1,6 +1,7 @@
 """GLaDOS specific Python functions to interact with Testrail
 using the Testrail API.
 """
+from library.tools import Tools
 from testrail.testrail import *
 
 import re
@@ -29,8 +30,8 @@ def get_result_fields():
     """
     request = 'get_result_fields'
     result = client.send_get(request)
+    Tools.log(result)
     return result
-    print result
 
 def get_browsers():
     """Returns a dictionary of the browsers TestRail allows a user
@@ -55,9 +56,9 @@ def get_browsers():
                 browsers[key_value_pair[0]] = key_value_pair[1]
             break
     else:
-        print "Browsers could not be obtained from TestRail."
+        Tools.log("Browsers could not be obtained from TestRail.")
     return browsers
-    print browsers
+    Tools.log(browsers)
 
 def get_test_environments():
     """Returns a dictionary of the custom test environments
@@ -81,7 +82,7 @@ def get_test_environments():
                 test_envs[key_value_pair[0]] = key_value_pair[1]
             break
     else:
-        print "Test environments could not be obtained from TestRail."
+        Tools.log("Test environments could not be obtained from TestRail.")
     return test_envs
 
 def get_statuses():
@@ -137,7 +138,7 @@ def get_test_categories():
                 test_categories[str(int(key_value[0]))] = key_value[1] # Explanation: String shows, 0004, but when we need the ID to check, it has to be a string of, '4'.
             break
     else:
-        print "Test categories could not be obtained from TestRail."
+        Tools.log("Test categories could not be obtained from TestRail.")
     return test_categories
 
 

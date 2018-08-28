@@ -1,3 +1,4 @@
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -428,7 +429,7 @@ class SeleniumActions:
 
     @staticmethod
     def check_element_exists(web_driver, element_path):
-        """Finds a WebElement from a partial link text
+        """Check if element exists
 
         :param WebDriver web_driver:
         :param str element_path:
@@ -442,3 +443,4 @@ class SeleniumActions:
         except Exception as error:
             print("Error :: " + str(error) + "\nElement Path: \n" + str(element_path))
             return None
+

@@ -1,6 +1,12 @@
-# Python_Selenium_App
+TestRail API Binding for Java
+-----------------------------
+ 
+You can learn more about TestRail's API and how to use the Java binding here:
 
+http://docs.gurock.com/testrail-api2/start
 
-Install pip dependencies using:
+http://docs.gurock.com/testrail-api2/bindings-java
 
-`pip install -r requirements.txt`
+The binding uses the JSON.simple library for encoding/decoding JSON data, copyright Yidong Fang, licensed under the Apache 2.0 license and available here:
+
+https://code.google.com/p/json-simple/

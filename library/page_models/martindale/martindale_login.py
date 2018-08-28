@@ -4,6 +4,7 @@ from library.tools import Tools
 
 import sys
 
+
 class MartindaleLogin:
 
     @staticmethod
